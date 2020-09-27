@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Et forslag</title>
+</head>
+<body>
+
+	<div>
+		
+		<header>
+			<h1>FindYourLove</h1>
+		</header>
+		
+		<nav>
+			<ul>
+				<li><a href="alle-profiler.html">Alle profiler</a></li>
+				<li><a href="profil-forslag.html">Dagens profil</a></li>
+				<li><a href="valgfri-funksjonalitet.html"></a></li>
+			</ul>
+		</nav>
+		
+		<main>
+		
+			<section>
+				<label>Tast inn ønsket alder</label>
+				<input id="user-input-alder" type=number><br>
+				<label>Mann eller kvinne?</label>
+				<input id="user-input-kjønn" type="text">
+				<input type="button" value="Vis forslag" id="the-magic-button" onclick="loveCalculator()">
+			</section>
+			
+			<section>
+				
+				<h2>For deg anbefaler vi:</h2>
+				<div id="anbefalt-profil"></div>
+
+			</section>
+
+	<script type="text/javascript">
+		
+		var anbefaltProfil = document.getElementById("anbefalt-profil");
+
+		var userInputKjønn = "user-input-kjønn";
+		var userInputAlder = "user-input-alder";
+
+		/* Plasser i arrays: Charles 0 - Lars 1 - Stine 2 - Zelda 3*/
+		var bildeArray = ["Charles.jpg", "Lars.jpg", "Stine.jpg", "Zelda.jpg"];
+		var navnArray = ["Charles", "Lars", "Stine", "Zelda"];
+		var alderArray = [27, 20, 29, 21];
+		var bioArray = 
+		["Jobber som lærer, men fotball er the true passion!", /*Charles*/
+		"Studerer historie og drømmer om å bli diktator, bilde er meg som øver på taler", /*Lars*/
+		"Ikke for å skryte, men jeg er ganske rå på baking og kickboxing.", /*Stine*/
+		"Har lyst til å jobbe med programmering! Bilde er meg som prøver å se hva som er galt med koden min i JS",] /*Zelda*/
+
+		/* lagde en test-funksjon for respons fra vis forslag knappen
+			
+		function loveCalculator (){
+			document.getElementById("anbefalt-profil").innerHTML = "test";
+		} */ 
+
+		function loveCalculator (){
+			/* to if-er her, en for om man velger mann eller kvinne, med if inne i ifs for aldersutregningen*/
+			if (userInputAlder >= 25) {
+				document.getElementById("anbefalt-profil").innerHTML = "jeg kommer om det er over eller lik 25";
+			}
+			else if (userInputAlder < 25) {
+				document.getElementById("anbefalt-profil").innerHTML = "jeg kommer om det er mindre enn 25";
+			}
+		}
+
+	</script>
+		
+		</main>
+		
+	</div>
+
+</body>
+</html>

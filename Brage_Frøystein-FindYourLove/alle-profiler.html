@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>FindYourLove</title>
+</head>
+<body>
+
+	<div>
+		
+		<header>
+			<h1>FindYourLove</h1>
+		</header>
+		
+		<nav>
+			<ul>
+				<li><a href="alle-profiler.html">Alle profiler</a></li>
+				<li><a href="profil-forslag.html">Dagens profil</a></li>
+				<li><a href="valgfri-funksjonalitet.html"></a></li>
+			</ul>
+		</nav>
+		
+	</div>
+	
+	<h2>Alle profiler</h2>
+
+	<div id="all-profiles-div"></div>
+
+	<script type="text/javascript">
+		
+		var allProfilesDiv = document.getElementById("all-profiles-div");
+
+		/* Plasser i arrays: Charles 0 - Lars 1 - Preben 2 - Sol 3 - Stine 4 - Zelda 5*/
+		var bildeArray = ["Charles.jpg", "Lars.jpg", "Preben.JPG", "Sol.jpg", "Stine.jpg", "Zelda.jpg"];
+		var navnArray = ["Charles", "Lars", "Preben", "Sol", "Stine", "Zelda"];
+		var alderArray = [27, 20, 22, 24, 29, 21];
+		var bioArray = 
+		["Jobber som lærer, men fotball er the true passion!", /*Charles*/
+		"Studerer historie og drømmer om å bli diktator, bilde er meg som øver på taler", /*Lars*/
+		"Tar bachelor i økonomi og ledelse på BI, og jeg er ALLTID på gjestelista til Heidi's", /*Preben*/
+		"Elsker å gå turer i skog og mark, bli med da vel!", /*Sol*/
+		"Ikke for å skryte, men jeg er ganske rå på baking og kickboxing.", /*Stine*/
+		"Har lyst til å jobbe med programmering! Bilde er meg som prøver å se hva som er galt med koden min i JS", /*Zelda*/]
+		
+		for (var counter = 0; counter < bildeArray.length; counter++) {
+			allProfilesDiv.innerHTML += `
+			<img src="images/${bildeArray[counter]}">
+			<p>Navn: ${navnArray[counter]}</p>
+			<p>Alder: ${alderArray[counter]}</p>
+			<p>Kort om meg: ${bioArray[counter]}</p>
+			`;
+		}
+	</script>
+
+</body>
+
+</html>
