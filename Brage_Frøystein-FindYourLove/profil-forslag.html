@@ -16,7 +16,7 @@
 			<ul>
 				<li><a href="alle-profiler.html">Alle profiler</a></li>
 				<li><a href="profil-forslag.html">Dagens profil</a></li>
-				<li><a href="valgfri-funksjonalitet.html"></a></li>
+				<li><a href="valgfri-funksjonalitet.html">Tilfeldig venn</a></li>
 			</ul>
 		</nav>
 		
@@ -40,53 +40,76 @@
 		<script type="text/javascript">
 		
 		var anbefaltProfil = document.getElementById("anbefalt-profil");
+		
+		/*Nye variabler, nødvendige for at funksjonen skal sjekke alder/kjønn input fra bruker*/
 		var userInputKjønn = document.getElementById("user-input-kjønn");
 		var userInputAlder = document.getElementById("user-input-alder");
 
 		/* Plasser i arrays: Charles 0 - Lars 1 - Stine 2 - Zelda 3*/
 		var bildeArray = ["Charles.jpg", "Lars.jpg", "Stine.jpg", "Zelda.jpg"];
 		var navnArray = ["Charles", "Lars", "Stine", "Zelda"];
-		var alderArray = [27, 20, 29, 21];
+		var alderArray = [27, 20, 28, 21];
 		var bioArray = 
 		["Jobber som lærer, men fotball er the true passion!", /*Charles*/
 		"Studerer historie og drømmer om å bli diktator, bilde er meg som øver på taler", /*Lars*/
 		"Ikke for å skryte, men jeg er ganske rå på baking og kickboxing.", /*Stine*/
-		"Har lyst til å jobbe med programmering! Bilde er meg som prøver å se hva som er galt med koden min i JS",] /*Zelda*/
-
-		/*funskjonen kjører først en if else på kjønn, deretter har disse sin egen underordnede if else til¨å sjekke alder*/
+		"Har lyst til å jobbe med programmering! Bilde er meg som prøver å se hva som er galt med koden min i JS", /*Zelda*/]
+		
+		/*funskjonen kjører først en if else på alder, deretter har disse sin egen underordnede if else til å sjekke kjønn*/
 		function loveCalculator (){
 			kjønn = userInputKjønn.value; /*Dette var nøkkelen til hvorfor jeg ikke fikk det til første gangen*/
 			alder = userInputAlder.value; /*Hadde ikke assignet values til userinputboxene*/
-			if (kjønn === "kvinne") {
-				if (alder >= 25) { /*Her skal Stine*/
+			if (alder >= 25) {
+				if (kjønn === "kvinne") { 		/*Her skal Stine*/
 					document.getElementById("anbefalt-profil").innerHTML = `
+					<div id="profile-card">
 					<img src="images/${bildeArray[2]}">
-					<p>For deg anbefaler vi ${alderArray[2]} år gamle ${navnArray[2]}!<br>Kontakt henne da vel!</p>`;
+					<p>Navn: ${navnArray[2]}</p>
+					<p>Alder: ${alderArray[2]}</p>
+					<p>Kort om meg: ${bioArray[2]}</p>
+					</div>`;
 				}
-				else if (alder < 25){/*Her skal Zelda*/
+				else if (kjønn === "mann") {	/*Her skal Charles*/
 					document.getElementById("anbefalt-profil").innerHTML = `
-					<img src="images/${bildeArray[3]}">
-					<p>Vi tror ${alderArray[3]} år gamle ${navnArray[3]} og du passer bra sammen!<br>Fort deg før noen andre prøver seg!</p>`;
-				}
-			}
-			else if (kjønn === "mann"){
-				if (alder >= 25) {/*Her skal Charles*/
-					document.getElementById("anbefalt-profil").innerHTML = `
+					<div id="profile-card">
 					<img src="images/${bildeArray[0]}">
-					<p>${navnArray[0]} er i området!<br>Du kan møte han allerede ikveld!</p>`;
+					<p>Navn: ${navnArray[0]}</p>
+					<p>Alder: ${alderArray[0]}</p>
+					<p>Kort om meg: ${bioArray[0]}</p>
+					</div>`;
 				}
-				else if (alder < 25){/*Her skal Lars*/
+			}
+			
+			if (alder < 25) {
+				if (kjønn === "kvinne"){		/*Her skal Zelda*/
 					document.getElementById("anbefalt-profil").innerHTML = `
+					<div id="profile-card">
+					<img src="images/${bildeArray[3]}">
+					<p>Navn: ${navnArray[3]}</p>
+					<p>Alder: ${alderArray[3]}</p>
+					<p>Kort om meg: ${bioArray[3]}</p>
+					</div>`;
+				}
+				else if (kjønn === "mann"){		/*Her skal Lars*/
+					document.getElementById("anbefalt-profil").innerHTML = `
+					<div id="profile-card">
 					<img src="images/${bildeArray[1]}">
-					<p>${alderArray[1]} år gamle ${navnArray[1]} har nettopp blitt medlem hos oss!<br>Bli han første kjærlighet</p>`;
+					<p>Navn: ${navnArray[1]}</p>
+					<p>Alder: ${alderArray[1]}</p>
+					<p>Kort om meg: ${bioArray[1]}</p>
+					</div>`;
 				}
 			}
-			else if (alder < 18){
-				alert("STOP RIGHT THERE, CRIMINAL SCUM!") /*Easter egg/advarsel om man legger inn for lav alder*/
+			
+			if (alder < 18) { /*Easter egg/advarsel om man legger inn for lav alder*/
+					document.getElementById("anbefalt-profil").innerHTML = `
+					<div id"profile-card">
+					<p>Du tastet inn en alder lavere enn 18!</p>
+					</div>`;
+					alert("STOP RIGHT THERE, CRIMINAL SCUM!")
+
 			}
-
 		}
-
 		</script>
 		
 		</main>

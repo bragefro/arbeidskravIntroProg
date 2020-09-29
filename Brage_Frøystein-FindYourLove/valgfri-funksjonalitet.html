@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>???</title>
+	<title>Randomizer</title>
 </head>
 <body>	
 	<div>
@@ -15,9 +15,45 @@
 			<ul>
 				<li><a href="alle-profiler.html">Alle profiler</a></li>
 				<li><a href="profil-forslag.html">Dagens profil</a></li>
-				<li><a href="valgfri-funksjonalitet.html"></a></li>
+				<li><a href="valgfri-funksjonalitet.html">Tilfeldig venn</a></li>
 			</ul>
-		</nav>
+		</nav>		
+		
 	</div>
+	<div>
+		<h2>Tilfeldig venn</h2>
+ 		<!-- Random number generatoren skulle være her innenfor input tagen -->
+ 		<input type="button" value="Prøv lykken!" onclick="randomProfile(Math.round(Math.random() * 5))">
+		<div id="tilfeldig-profil"></div>
+	</div>
+
+	<script type="text/javascript">
+
+		/* Copypaste fra "alle-profiler.html */
+		/* Plasser i arrays: Charles 0 - Lars 1 - Preben 2 - Sol 3 - Stine 4 - Zelda 5*/
+		var bildeArray = ["Charles.jpg", "Lars.jpg", "Preben.JPG", "Sol.jpg", "Stine.jpg", "Zelda.jpg"];
+		var navnArray = ["Charles", "Lars", "Preben", "Sol", "Stine", "Zelda"];
+		var alderArray = [27, 20, 22, 24, 28, 21];
+		var bioArray = 
+		["Jobber som lærer, men fotball er the true passion!", /*Charles*/
+		"Studerer historie og drømmer om å bli diktator, bilde er meg som øver på taler", /*Lars*/
+		"Tar bachelor i økonomi og ledelse på BI, og jeg er ALLTID på gjestelista til Heidi's", /*Preben*/
+		"Elsker å gå turer i skog og mark, bli med da vel!", /*Sol*/
+		"Ikke for å skryte, men jeg er ganske rå på baking og kickboxing.", /*Stine*/
+		"Har lyst til å jobbe med programmering! Bilde er meg som prøver å se hva som er galt med koden min i JS", /*Zelda*/]
+
+		function randomProfile (random){
+			/*var tilfeldigProfil = bildeArray[Math.round(Math.random() * bildeArray.length)]; originale forsøket */
+			document.getElementById("tilfeldig-profil").innerHTML = `
+			<div id="profile-card">
+			<img src="images/${bildeArray[random]}">
+			<p>Navn: ${navnArray[random]}</p>
+			<p>Alder: ${alderArray[random]}</p>
+			<p>Kort om meg: ${bioArray[random]}</p>
+			</div>`;
+			
+		}		
+
+	</script>
 </body>
 </html>
