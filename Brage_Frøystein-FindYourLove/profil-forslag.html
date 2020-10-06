@@ -59,9 +59,10 @@
 		function loveCalculator (){
 			kjønn = userInputKjønn.value; /*Dette var nøkkelen til hvorfor jeg ikke fikk det til første gangen*/
 			alder = userInputAlder.value; /*Hadde ikke assignet values til userinputboxene*/
+
 			if (alder >= 25) {
 				if (kjønn === "kvinne") { 		/*Her skal Stine*/
-					document.getElementById("anbefalt-profil").innerHTML = `
+					anbefaltProfil.innerHTML = `
 					<div id="profile-card">
 					<img src="images/${bildeArray[2]}">
 					<p>Navn: ${navnArray[2]}</p>
@@ -70,7 +71,7 @@
 					</div>`;
 				}
 				else if (kjønn === "mann") {	/*Her skal Charles*/
-					document.getElementById("anbefalt-profil").innerHTML = `
+					anbefaltProfil.innerHTML = `
 					<div id="profile-card">
 					<img src="images/${bildeArray[0]}">
 					<p>Navn: ${navnArray[0]}</p>
@@ -82,7 +83,7 @@
 			
 			if (alder < 25) {
 				if (kjønn === "kvinne"){		/*Her skal Zelda*/
-					document.getElementById("anbefalt-profil").innerHTML = `
+					anbefaltProfil.innerHTML = `
 					<div id="profile-card">
 					<img src="images/${bildeArray[3]}">
 					<p>Navn: ${navnArray[3]}</p>
@@ -91,7 +92,7 @@
 					</div>`;
 				}
 				else if (kjønn === "mann"){		/*Her skal Lars*/
-					document.getElementById("anbefalt-profil").innerHTML = `
+					anbefaltProfil.innerHTML = `
 					<div id="profile-card">
 					<img src="images/${bildeArray[1]}">
 					<p>Navn: ${navnArray[1]}</p>
@@ -102,7 +103,7 @@
 			}
 			
 			if (alder < 18) { /*Easter egg/advarsel om man legger inn for lav alder*/
-					document.getElementById("anbefalt-profil").innerHTML = `
+					anbefaltProfil.innerHTML = `
 					<div id"profile-card">
 					<p>Du tastet inn en alder lavere enn 18!</p>
 					</div>`;
